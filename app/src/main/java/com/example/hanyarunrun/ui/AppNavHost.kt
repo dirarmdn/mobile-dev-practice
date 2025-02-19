@@ -12,7 +12,7 @@ import com.example.hanyarunrun.viewmodel.DataViewModel
 fun AppNavHost(viewModel: DataViewModel) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "form") {
+    NavHost(navController = navController, startDestination = "list") {
         composable("form") {
             DataEntryScreen(navController = navController, viewModel = viewModel)
         }

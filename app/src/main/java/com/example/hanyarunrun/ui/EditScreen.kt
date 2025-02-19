@@ -1,7 +1,6 @@
 package com.example.hanyarunrun.ui
 
 import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -127,6 +126,13 @@ fun EditScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "Update Data")
+            }
+            Button(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier.fillMaxSize(),
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
+            ) {
+                Text("Back")
             }
         }
     }

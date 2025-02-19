@@ -51,4 +51,10 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
             dao.getById(id)
         }
     }
+
+    fun deleteData(data: DataEntity) {
+        viewModelScope.launch {
+            dao.delete(data)
+        }
+    }
 }

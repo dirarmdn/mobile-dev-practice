@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -106,6 +107,13 @@ fun DataEntryScreen(navController: NavHostController, viewModel: DataViewModel) 
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Submit Data")
+            }
+            Button(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier.fillMaxSize(),
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
+            ) {
+                Text("Back")
             }
         }
     }
