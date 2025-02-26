@@ -3,6 +3,7 @@ package com.example.hanyarunrun.ui
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
@@ -42,30 +43,38 @@ fun DataEntryScreen(navController: NavHostController, viewModel: DataViewModel) 
         ) {
             Text(
                 text = "Input Data",
-                style = MaterialTheme.typography.headlineMedium
+                style = MaterialTheme.typography.displayLarge
             )
             OutlinedTextField(
                 value = kodeProvinsi,
                 onValueChange = { kodeProvinsi = it },
                 label = { Text("Kode Provinsi") },
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = namaProvinsi,
                 onValueChange = { namaProvinsi = it },
                 label = { Text("Nama Provinsi") },
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = kodeKabupatenKota,
                 onValueChange = { kodeKabupatenKota = it },
                 label = { Text("Kode Kabupaten/Kota") },
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = namaKabupatenKota,
                 onValueChange = { namaKabupatenKota = it },
                 label = { Text("Nama Kabupaten/Kota") },
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
@@ -73,18 +82,24 @@ fun DataEntryScreen(navController: NavHostController, viewModel: DataViewModel) 
                 onValueChange = { total = it },
                 label = { Text("Total") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = satuan,
                 onValueChange = { satuan = it },
                 label = { Text("Satuan") },
+                textStyle = MaterialTheme.typography.bodyMedium,
+                shape = RoundedCornerShape(12.dp),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = tahun,
                 onValueChange = { tahun = it },
                 label = { Text("Tahun") },
+                shape = RoundedCornerShape(12.dp),
+                textStyle = MaterialTheme.typography.bodyMedium,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -106,14 +121,18 @@ fun DataEntryScreen(navController: NavHostController, viewModel: DataViewModel) 
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Submit Data")
+                Text(text = "Submit Data",
+                    style = MaterialTheme.typography.bodyMedium)
             }
             Button(
                 onClick = { navController.popBackStack() },
                 modifier = Modifier.fillMaxSize(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
             ) {
-                Text("Back")
+                Text(
+                    text = "Back",
+                    style = MaterialTheme.typography.bodyMedium)
+
             }
         }
     }

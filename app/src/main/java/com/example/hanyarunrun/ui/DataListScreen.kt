@@ -99,7 +99,7 @@ fun DataListScreen(navController: NavHostController, viewModel: DataViewModel) {
                                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
 
                                         ) {
-                                        Text(text = "Edit")
+                                        Text(text = "Edit", style = MaterialTheme.typography.bodyMedium)
                                     }
                                     Button(
                                         onClick = {
@@ -115,7 +115,7 @@ fun DataListScreen(navController: NavHostController, viewModel: DataViewModel) {
                                         colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
                                         modifier = Modifier.padding(start = 8.dp)
                                     ) {
-                                        Text("Hapus", color = Color.White)
+                                        Text(text = "Hapus", color = Color.White, style = MaterialTheme.typography.bodyMedium)
                                     }
                                 }
                             }

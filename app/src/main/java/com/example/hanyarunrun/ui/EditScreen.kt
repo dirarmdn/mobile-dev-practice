@@ -122,17 +122,16 @@ fun EditScreen(
                     Toast.makeText(context, "Data berhasil diupdate!", Toast.LENGTH_SHORT).show()
                     navController.popBackStack()
                 },
-                shape = RoundedCornerShape(8.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Update Data")
+                Text(text = "Update Data", style = MaterialTheme.typography.bodyMedium)
             }
             Button(
                 onClick = { navController.popBackStack() },
                 modifier = Modifier.fillMaxSize(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
             ) {
-                Text("Back")
+                Text(text = "Back", style = MaterialTheme.typography.bodyMedium)
             }
         }
     }
