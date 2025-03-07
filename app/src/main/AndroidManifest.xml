@@ -2,16 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="com.example.opendatajabar.OpenDataJabarApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/open_logo"
-        android:label="@string/app_name"
+        android:label="OpenData Jabar"
         android:roundIcon="@drawable/open_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hanyarunrun"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"
@@ -21,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
