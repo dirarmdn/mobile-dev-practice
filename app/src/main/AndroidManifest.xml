@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/open_logo"
+        android:icon="@drawable/open_logo_splash"
         android:label="OpenData Jabar"
-        android:roundIcon="@drawable/open_logo"
+        android:roundIcon="@drawable/open_logo_splash"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hanyarunrun"
         tools:targetApi="31">

@@ -10,31 +10,32 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RegionRepository @Inject constructor(
+class HealthRepository @Inject constructor(
     private val apiService: OpenDataApiService,
-    private val regionDao: RegionDao
+    private val healthDao: HealthDao
 ) {
 
-    fun getRegion(): Flow<PagingData<RegionEntity>> {
+    fun getHealth(): Flow<PagingData<HealthEntity>> {
         return Pager(
             config = PagingConfig(pageSize = 20, enablePlaceholders = false),
-            pagingSourceFactory = { RegionPagingSource(apiService) }
+            pagingSourceFactory = { HealthPagingSource(apiService) }
         ).flow.map { pagingData ->
             pagingData.map { net ->
-                val entity = RegionEntity(
-                    kodeProvinsi = net.kodeProvinsi,
-                    namaProvinsi = net.namaProvinsi,
+                val entity = HealthEntity(
+                    jumlahPenderita = net.jumlahPenderita,
                     kodeKabupatenKota = net.kodeKabupatenKota,
-                    namaKabupatenKota = net.namaKabupatenKota
+                    namaKabupatenKota = net.namaKabupatenKota,
+                    satuan = net.satuan.toString(),
+                    tahun = net.tahun
                 )
-                regionDao.insert(entity)
+                healthDao.insert(entity)
                 entity
             }
         }
     }
 
-    suspend fun getRegionById(id: Int): RegionEntity? {
-        return regionDao.getById(id)
+    suspend fun getHealthById(id: Int): HealthEntity? {
+        return healthDao.getById(id)
     }
 
 }

@@ -7,29 +7,55 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import androidx.navigation.navArgument
+import com.example.opendatajabar.ui.health.EditHealthScreen
+import com.example.opendatajabar.ui.health.EntryScreen
+import com.example.opendatajabar.ui.health.HealthListScreen
+import com.example.opendatajabar.viewmodel.HealthViewModel
 import com.example.opendatajabar.viewmodel.RegionViewModel
 import com.example.opendatajabar.viewmodel.UserViewModel
 
 @Composable
-fun AppNavHost(viewModel: RegionViewModel, userViewModel: UserViewModel) {
+fun AppNavHost(viewModel: RegionViewModel, userViewModel: UserViewModel, healthViewModel: HealthViewModel) {
     val navController = rememberNavController()
-    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route ?: "list"
 
     Scaffold(
         bottomBar = {
-            NavigationBar(navController = navController, currentRoute = currentRoute)
+            CustomBottomNavigation(
+                currentScreenId = currentRoute,
+                onItemSelected = { screen ->
+                    navController.navigate(screen.id) {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
+            )
         }
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "list",
+            startDestination = "home",
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable("home") {
+                HomeScreen(navController = navController)
+            }
+
+            composable("data") {
+                DataScreen(navController = navController, viewModel = healthViewModel)
+            }
             composable("form") {
                 DataEntryScreen(navController = navController, viewModel = viewModel)
             }
             composable("list") {
                 DataListScreen(navController = navController, viewModel = viewModel)
+            }
+            composable("health") {
+                HealthListScreen(navController = navController, viewModel = healthViewModel)
+            }
+            composable("health-form") {
+                EntryScreen(navController = navController, viewModel = healthViewModel)
             }
             composable("profile") {
                 ProfileScreen(viewModel = userViewModel)
@@ -40,6 +66,13 @@ fun AppNavHost(viewModel: RegionViewModel, userViewModel: UserViewModel) {
             ) { backStackEntry ->
                 val id = backStackEntry.arguments?.getInt("id") ?: 0
                 EditScreen(navController = navController, viewModel = viewModel, dataId = id)
+            }
+            composable(
+                route = "edit/health/{id}",
+                arguments = listOf(navArgument("id") { type = NavType.IntType })
+            ) { backStackEntry ->
+                val id = backStackEntry.arguments?.getInt("id") ?: 0
+                EditHealthScreen(navController = navController, viewModel = healthViewModel, dataId = id)
             }
         }
     }

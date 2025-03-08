@@ -6,10 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = [RegionEntity::class, UserEntity::class], version = 5, exportSchema = false)
+@Database(entities = [RegionEntity::class, UserEntity::class, HealthEntity::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun regionDao(): RegionDao
     abstract fun userDao(): UserDao
+    abstract fun healthDao(): HealthDao
 
     companion object {
         @Volatile
@@ -22,12 +23,12 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "open_data_database"
                 )
+                    .fallbackToDestructiveMigration()
                     .build()
 
                 INSTANCE = instance
                 instance
             }
         }
-
     }
 }

@@ -55,7 +55,7 @@ fun SplashScreen() {
                 Text(
                     text = "Dhira Ramadini - 231511041",
                     fontSize = 24.sp,
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineMedium,
                     color = colorResource(id = R.color.white)
                 )
             }

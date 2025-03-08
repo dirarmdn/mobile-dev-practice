@@ -3,6 +3,7 @@ package com.example.openjabar.di
 import android.content.Context
 import androidx.room.Room
 import com.example.opendatajabar.data.AppDatabase
+import com.example.opendatajabar.data.HealthDao
 import com.example.opendatajabar.data.RegionDao
 import com.example.opendatajabar.data.UserDao
 import dagger.Module
@@ -31,4 +32,7 @@ object DatabaseModule {
 
     @Provides
     fun provideRegionDao(db: AppDatabase): RegionDao = db.regionDao()
+
+    @Provides
+    fun provideHealthDao(db: AppDatabase): HealthDao = db.healthDao()
 }

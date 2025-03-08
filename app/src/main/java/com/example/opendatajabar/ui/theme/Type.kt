@@ -15,20 +15,31 @@ val PlusJakartaSans = FontFamily(
     Font(R.font.plus_jakarta_sans_bold, FontWeight.Bold)
 )
 
-val Typography = Typography(
-    displayLarge = TextStyle(
-        fontFamily = PlusJakartaSans,
-        fontWeight = FontWeight.Bold,
-        fontSize = 32.sp
-    ),
-    titleMedium = TextStyle(
-        fontFamily = PlusJakartaSans,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 20.sp
-    ),
-    bodyMedium = TextStyle(
-        fontFamily = PlusJakartaSans,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+val Typography: Typography
+    get() = Typography(
+        displayLarge = TextStyle(
+            fontFamily = PlusJakartaSans,
+            fontWeight = FontWeight.Bold,
+            fontSize = 32.sp
+        ),
+        titleMedium = TextStyle(
+            fontFamily = PlusJakartaSans,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 20.sp
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = PlusJakartaSans,
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp
+        ),
+        bodySmall = TextStyle(
+            fontFamily = PlusJakartaSans,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp
+        ),
+        titleSmall = TextStyle(
+            fontFamily = PlusJakartaSans,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 14.sp
+        )
     )
-)
