@@ -15,7 +15,7 @@ interface RegionDao {
     @Query("SELECT * FROM region_table ORDER BY id DESC")
     fun getAll(): Flow<List<RegionEntity>>
 
-    @Query("SELECT * FROM region_table WHERE id = :dataId")
+    @Query("SELECT * FROM region_table WHERE kodeKabupatenKota = :dataId")
     suspend fun getById(dataId: Int): RegionEntity?
 
     @Delete

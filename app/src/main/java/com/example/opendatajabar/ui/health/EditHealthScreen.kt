@@ -37,6 +37,7 @@ fun EditHealthScreen(
     }
 
     LaunchedEffect(healthData) {
+        println("Health data updated: $healthData")
         healthData?.let { data ->
             jumlahPenderita = data.jumlahPenderita.toString()
             satuan = data.satuan

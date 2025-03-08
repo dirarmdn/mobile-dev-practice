@@ -114,9 +114,10 @@ fun HealthListScreen(
                                             horizontalArrangement = Arrangement.End,
                                             verticalAlignment = Alignment.CenterVertically
                                         ) {
+                                            println("ID updated: ${item}")
                                             Button(
                                                 onClick = {
-                                                    navController.navigate("edit/health/${item.id}")
+                                                    navController.navigate("edit/health/${item.kodeKabupatenKota}")
                                                 },
                                                 shape = RoundedCornerShape(8.dp),
                                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),

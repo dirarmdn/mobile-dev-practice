@@ -20,7 +20,7 @@ interface HealthDao {
     @Query("SELECT * FROM diabetic_table ORDER BY id DESC")
     fun getAll(): Flow<List<HealthEntity>>
 
-    @Query("SELECT * FROM diabetic_table WHERE id = :dataId")
+    @Query("SELECT * FROM diabetic_table WHERE kodeKabupatenKota = :dataId")
     suspend fun getById(dataId: Int): HealthEntity?
 
     @Delete

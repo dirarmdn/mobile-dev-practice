@@ -114,7 +114,7 @@ fun DataListScreen(
                                         ) {
                                             Button(
                                                 onClick = {
-                                                    navController.navigate("edit/${item.id}")
+                                                    navController.navigate("edit/${item.kodeKabupatenKota}")
                                                 },
                                                 shape = RoundedCornerShape(8.dp),
                                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
